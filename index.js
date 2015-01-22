@@ -18,10 +18,11 @@ setInterval(function() {
   bank.dispatch({
     type: 'CONTACTS',
     data: {
+      timestamp: +new Date(),
       dogs: !!(i++)
     }
   });
-}, 5000 * Math.random());
+}, 5000);
 
 
 server.listen(4201);
