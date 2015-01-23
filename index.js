@@ -1,11 +1,11 @@
 var server = require('http').createServer();
 var io = require('socket.io')(server);
-var MsgBank = require('message-bank');
-var bank = new MsgBank();
+
+var bank = require('./lib/bank.js');
 
 io.on('connection', function(socket){
-  var id = bank.subscribe('CONTACTS', function(d, o) {
-    socket.emit('data', { type: 'CONTACTS', data: d, options: o });
+  var id = bank.subscribe(function(d, o, t) {
+    socket.emit('data', { type: t, data: d, options: o });
   });
 
   socket.on('disconnect', function(){
@@ -18,11 +18,11 @@ setInterval(function() {
   bank.dispatch({
     type: 'CONTACTS',
     data: {
-      timestamp: +new Date(),
-      dogs: !!(i++)
+      timestamp: new Date(),
+      dogs: Boolean((i++) % 2)
     }
   });
-}, 5000);
+}, 5 * 1000);
 
 
 server.listen(4201);
