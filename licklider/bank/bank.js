@@ -3,6 +3,6 @@ var cache = require('./bank.cache.js');
 
 var bank = new Bank();
 
-cache(bank, './cache/message-box.json');
+cache(bank, 'cache/message-box.json');
 
 module.exports = bank;

@@ -1,4 +1,4 @@
-var bank = require('../../../licklider/bank/bank.js');  
+var bank = require('./bank/bank.js');  
 
 setInterval(function() {
   bank.dispatch({

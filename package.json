@@ -3,8 +3,10 @@
   "description": "A server full of data.",
   "homepage": "https://github.com/krambuhl/ganglion",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "licklider/index.js",
   "scripts": {
+    "web-server": "supervisor amyx/index.js",
+    "socket-server": "supervisor licklider/index.js",
     "test": "tape tests/*.js | tap-spec"
   },
   "repository": {
@@ -12,11 +14,13 @@
     "url": "git@github.com:krambuhl/ganglion.git"
   },
   "devDependencies": {
+    "supervisor": "^0.6.0",
     "tap-spec": "^2.1.2",
     "tape": "^3.0.3"
   },
   "dependencies": {
     "express": "^4.11.1",
+    "forever": "^0.13.0",
     "message-bank": "^1.0.5",
     "passport": "^0.2.1",
     "passport-github": "^0.1.5",
