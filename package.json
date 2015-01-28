@@ -5,8 +5,8 @@
   "version": "1.0.0",
   "main": "licklider/index.js",
   "scripts": {
-    "web-server": "supervisor amyx/index.js",
-    "socket-server": "supervisor licklider/index.js",
+    "web-server": "PORT=5050 supervisor amyx/index.js",
+    "socket-server": "PORT=5000 supervisor licklider/index.js",
     "test": "tape tests/*.js | tap-spec"
   },
   "repository": {

@@ -5,4 +5,4 @@ db.port = 27017;
 db.database = 'ganglion-krambuhl';
 db.url = 'mongodb://' + db.server + ':' + db.port + '/' + db.database;
 
-module.exports = { db: data };
+module.exports = { db: db };
